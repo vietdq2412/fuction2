@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .input {
+        display: block;
+        background-color: #e7e0e0;
+        width: 65%;
+        height: 40px;
+    }
+    
+    .content {
+
+        width: 500px;
+    }
+    
+    button {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 8px;
+        color: white;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    tbody {
+        width: 100%;
+        text-align: left;
+    }
+    
+    th {
+        width: 50%;
+    }
+    
+    tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    span {
+        float: right;
+    }
+</style>
+
+<body>
+
+    <div class="content">
+        <h3>Add new product</h3>
+        <div class="input">
+            <input type="text" id="input" value=""><button id="btn" onclick="addProduct()">Add</button>
+        </div>
+        <h3>Display product</h3>
+        <p id="p"></p>
+        <br>
+        <hr>
+        <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <p id="result"></p>
+    </div>
+    <script>
+        let products = Array();
+
+        let getInput = document.getElementById('input'),
+            getp = document.getElementById('p');
+
+        ///press enter = click button
+        getInput.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById('btn').click();
+            }
+        });
+
+        //add an element to products[]
+        function addProduct() {
+            let add = getInput.value;
+            if (add != "") {
+                products[products.length] = add;
+                alert("thêm " + add);
+                document.getElementById("input").focus();
+            } else {
+                alert('input sth!')
+                document.getElementById("input").focus();
+            }
+            show();
+        }
+
+        function show() {
+            let data = '<table> <tr><td colspan="3"><p>Products name<span id="numberOfProducts"></span></p></td></tr>';
+            for (let i = 0; i < products.length; i++) {
+                data += "<tr>";
+                data += "<th>" + products[i] + "</th>" +
+                    "<td><button onclick=\"rename_product(" + "'" + products[i] + "'" + ")\">Edit</button></td>" +
+                    "<td><button onclick=\"remove_product(" + "'" + products[i] + "'" + ")\">Delete</button></td>";
+                data += "</tr>";
+            }
+            getp.innerHTML = data + '</table>';
+            if (products.length > 1) {
+                document.getElementById('numberOfProducts').innerHTML = products.length + 'products';
+            } else {
+                document.getElementById('numberOfProducts').innerHTML = products.length + 'product';
+            }
+
+        }
+
+        function rename_product(p) {
+            let newName = prompt('input new name: ');
+            let name = String(p);
+            let index = products.indexOf(name);
+            products[index] = newName;
+            show();
+        }
+
+        function remove_product(p) {
+            let name = String(p);
+            let index = products.indexOf(name);
+            products.splice(index, 1);
+            show();
+        }
+
+        function run() {
+            document.getElementById('result').innerHTML = f(products);
+        }
+
+        ////////////////////////////////funtion:////////////////////////////////////////////////////////////
+        function f(array) {
+            return array.reverse();
+        }
+    </script>
+</body>
+
+</html>
