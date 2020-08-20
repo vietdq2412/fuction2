@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let n = prompt('input an integer number below 10000: ');
+        let isPrimeNumber = isPrime(n);
+        if (isPrimeNumber) {
+            alert(n + " is an prime number!");
+        } else {
+            alert(n + " is not an prime number!");
+        }
+
+        function isPrime(number) {
+            let check;
+            for (let i = 2; i < Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    check = false;
+                    break;
+                } else {
+                    check = true;
+                }
+            }
+            return check;
+        }
+    </script>
+</body>
+
+</html>

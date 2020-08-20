@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="inputm" placeholder="input meter" value="">
+    <br><br><input type="number" id="inputf" placeholder="input foot" value="">
+    <br><br><button onclick="run()">Run</button>
+    <script>
+        function run() {
+            let result = 0;
+            let meterValue = document.getElementById('inputm').value;
+            let footValue = document.getElementById('inputf').value;
+
+            if (meterValue != '') {
+                result = meterToFoot(meterValue);
+            } else if (footValue != '') {
+                result = footToMeter(footValue);
+            } else {
+                alert('input somthing!');
+            }
+        }
+
+        function meterToFoot(meter) {
+            return 3.279 * meter;
+        }
+
+        function footToMeter(foot) {
+            return 0.305 * foot;
+        }
+    </script>
+</body>
+
+</html>

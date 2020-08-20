@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br><br>
+    <label for="input">Star: </label>
+    <br><input type="text" id="input">
+    <br><button onclick="search(document.getElementById('input').value)">Search</button>
+    <script>
+        let star = ["Polaris", "Aldebaran", "Deneb", 'Vega', 'Altair', 'Dubhe', 'Regulus'],
+            constellation = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+
+
+        function search(str) {
+            if (star.indexOf(str) !== -1) {
+                for (let i = 0; i < star.length; i++) {
+                    if (str === star[i]) {
+                        alert(str + ' is a star in ' + constellation[i]);
+                    }
+                }
+            } else {
+                alert('can not find this star!');
+            }
+        }
+    </script>
+</body>
+
+</html>
