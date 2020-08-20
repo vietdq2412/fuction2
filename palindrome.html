@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+</head>
+
+<body>
+    <script>
+        let string = prompt("nhập vào một chuỗi: ");
+        isPalindrome(string);
+        string.length
+
+        if (isPalindrome(string)) {
+            alert(string + " là chuỗi palindrome")
+        } else {
+            alert(string + " khoong phải chuỗi palindrome")
+        }
+
+        function isPalindrome(s) {
+            let l = s.length;
+
+            if (l < 2) {
+                return true;
+            } else {
+                if (s[0] !== s[l - 1]) {
+                    return false;
+                } else {
+                    return isPalindrome(s.substr(1, l - 2));
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
