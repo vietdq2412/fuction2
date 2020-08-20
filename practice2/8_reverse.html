@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input" value="">
+    <br><br><button id="btn" onclick="addElement()">ADD</button>
+    <br>
+    <p id="p"></p>
+    <br>
+    <button onclick="run()">Run</button>
+    <button onclick="pop()">Xóa</button>
+    <hr>
+    <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <p id="result"></p>
+    <script>
+        let arr = Array();
+        let x = arr.length;
+
+        let getInput = document.getElementById('input'),
+            getp = document.getElementById('p');
+
+        ///press enter = click button
+        getInput.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById('btn').click();
+            }
+        });
+        //add an element to arr[]
+        function addElement() {
+            let add = getInput.value;
+            if (add != "") {
+                arr[x] = add;
+                x++;
+                alert("thêm " + add);
+                document.getElementById("input").focus();
+            } else {
+                alert('input sth!')
+                document.getElementById("input").focus();
+            }
+            show();
+        }
+
+        function show() {
+            getp.innerHTML = '[ ' + arr.join(' ') + " ]";
+        }
+
+        function pop() {
+            arr.pop();
+            show();
+        }
+
+        function run() {
+            document.getElementById('result').innerHTML = f(arr);
+        }
+        ////////////////////////////////funtion:////////////////////////////////////////////////////////////
+        function f(array) {
+            return array.reverse();
+        }
+    </script>
+</body>
+
+</html>

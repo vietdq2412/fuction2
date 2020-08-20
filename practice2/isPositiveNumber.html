@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let number = prompt('nhap mot so nguyen');
+
+        let result = isPositive(number);
+
+        if (result) {
+            alert(number + ' là số nguyên dương');
+        } else {
+            alert(number + ' không phải số nguyên dươnng');
+        }
+
+        function isPositive(n) {
+            if (n > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

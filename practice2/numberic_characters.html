@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let char = prompt('nhap 1 ky tu: ');
+        const NUMBER_CHARACTER = '0123456789';
+
+        is_numberic_char(char);
+
+        function is_numberic_char(c) {
+            if (NUMBER_CHARACTER.indexOf(c) !== -1) {
+                alert(c + ' is a numberic character!');
+            } else {
+                alert(c + ' is not a numberic character!');
+            }
+        }
+    </script>
+</body>
+
+</html>

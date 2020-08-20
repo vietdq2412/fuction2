@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let n1 = prompt('nhap n1: ');
+        let n2 = prompt('nhap n2: ');
+        let n3 = prompt('nhap n3: ');
+
+        alert(findMin(n1, n2, n3));
+
+        function findMin(a, b, c) {
+            let min = a;
+
+            if (min > b) {
+                min = b;
+            }
+
+            if (min > c) {
+                min = c;
+            }
+            return min;
+        }
+    </script>
+</body>
+
+</html>
